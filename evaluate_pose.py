@@ -97,7 +97,8 @@ def evaluate(opt):
     with torch.no_grad():
         for inputs in dataloader:
             for key, ipt in inputs.items():
-                inputs[key] = ipt.cuda()
+                if isinstance(ipt,torch.Tensor):
+                    inputs[key] = ipt.cuda()
 
             all_color_aug = torch.cat([inputs[("color_aug", i, 0)] for i in opt.frame_ids])
 
