@@ -124,8 +124,8 @@ def evaluate(opt):
 
     pred_poses = np.concatenate(pred_poses)
 
-    gt_poses_path = os.path.join(opt.data_path, "poses", "{:02d}.txt".format(sequence_id))
-    gt_global_poses = np.loadtxt(gt_poses_path).reshape(-1, 3, 4)
+    gt_poses_path = os.path.join("/usr/stud/linp/storage/user/linp/results/kitti", "poses", "{:02d}.txt".format(sequence_id))
+    gt_global_poses = np.loadtxt(gt_poses_path).reshape((-1, 3, 4))
     gt_global_poses = np.concatenate(
         (gt_global_poses, np.zeros((gt_global_poses.shape[0], 1, 4))), 1)
     gt_global_poses[:, 3, 3] = 1

@@ -59,7 +59,7 @@ class ResnetEncoder(nn.Module):
             cfg, self.maskrcnn, save_dir='.'
         )
         if pretrained_model_path is not None:
-            _ = self.checkpointer.load(pretrained_model_path, convert=True)
+            _ = self.checkpointer.load(pretrained_model_path, convert=False)
 
         if not self.joint_training:
             # freeze gradients for mask rcnn
