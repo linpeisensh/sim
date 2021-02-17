@@ -54,9 +54,6 @@ def evaluate(opt):
     assert os.path.isdir(opt.load_weights_folder), \
         "Cannot find a folder at {}".format(opt.load_weights_folder)
 
-    assert opt.eval_split == "odom_9" or opt.eval_split == "odom_10", \
-        "eval_split should be either odom_9 or odom_10"
-
     sequence_id = int(opt.eval_split.split("_")[1])
     opt.batch_size = 1
 
